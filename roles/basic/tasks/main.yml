@@ -16,5 +16,5 @@
 
 - name: Install things from pip
   pip:
-    name: ipcalc
+    name: [ipcalc, jmespath]
     executable: pip3
