@@ -1,6 +1,6 @@
 - name: Install things from apt
   apt:
-    name: [git, htop, mosh, tmux, ca-certificates, xtail, vim, python3-pip]
+    name: [git, sudo, htop, mosh, tmux, ca-certificates, xtail, vim, python3-pip]
     state: latest
     update_cache: yes
 
