@@ -1,0 +1,22 @@
+- name: Configure users
+  user:
+    name: "{{ item }}"
+    groups: adm,sudo
+    shell: /bin/bash
+  with_items:
+    - dvn
+
+- name: Configure SSH keys
+  authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "{{ item.key }}"
+  with_items:
+    - name: dvn
+      key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYBrkfJCH8sHuEVGRkOod9fdy4hJzxoq1/q6CnSQSPh
+
+- name: Ensure passwordless sudo
+  lineinfile:
+    line: "%sudo	ALL=(ALL:ALL) NOPASSWD:ALL"
+    dest: /etc/sudoers
+    regexp: "^%sudo	ALL=\\(ALL:ALL\\).*"

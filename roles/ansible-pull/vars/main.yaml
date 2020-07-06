@@ -1,0 +1,2 @@
+playbooks:
+  gitlab-runner: https://pep-security.lu/gitlab/cid/infrastructure/ansible-gitlab-runner.git

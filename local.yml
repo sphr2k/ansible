@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  vars:
+    additional_playbooks:
+      runner0.pep-project.org:
+        - name: gitlab-runner
+  roles:
+    - role: buster-upgrade
+      when: (ansible_distribution == "Debian" and ansible_distribution_major_version == "9")
+    - basic
+    - ansible-pull
+    - users
+    - unattended-upgrades

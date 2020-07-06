@@ -1,0 +1,33 @@
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Install depends
+  apt:
+    name: [python3-pip, ansible]
+    state: present
+
+- name: Ensure /etc/ansible/facts.d exists
+  file:
+    path: /etc/ansible/facts.d
+    state: directory
+    recurse: yes
+
+- name: Make /etc/ansible/facts.d/pull.fact
+  template:
+    src: pull.fact
+    dest: /etc/ansible/facts.d/pull.fact
+
+- name: recollect facts
+  setup:
+
+- name: Install the ansible-pull script
+  template: src=ansible-pull.sh dest=/usr/sbin/run-ansible-pull mode=0755 owner=root group=root
+
+- name: Install cronjob
+  cron: name="Ansible Pull" minute="{{ ansible_local.pull.minute | default(59 | random) }}" job="/usr/sbin/run-ansible-pull"
+
+- name: ensure ansible-pull is run on reboot
+  cron:
+    name: run ansible on reboot
+    job: /usr/sbin/run-ansible-pull
+    special_time: reboot
