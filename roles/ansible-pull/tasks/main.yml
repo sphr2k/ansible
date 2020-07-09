@@ -26,8 +26,17 @@
 - name: Install cronjob
   cron: name="Ansible Pull" minute="{{ ansible_local.pull.minute | default(59 | random) }}" job="/usr/sbin/run-ansible-pull"
 
-- name: ensure ansible-pull is run on reboot
+- name: remove old ansible-pull on boot cronjob
   cron:
     name: run ansible on reboot
-    job: /usr/sbin/run-ansible-pull
-    special_time: reboot
+    state: absent
+
+- name: Install service to run ansible-pull on boot
+  template:
+    src: ansible-on-boot.service
+    dest: /etc/systemd/system/ansible-on-boot.service
+
+- name: Enable ansible pull on boot
+  service:
+    name: ansible-on-boot
+    enabled: yes
