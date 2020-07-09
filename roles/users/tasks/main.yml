@@ -1,6 +1,7 @@
 - name: Configure users
   user:
     name: "{{ item }}"
+    append: yes ## Don't set these as our *only* groups!
     groups: adm,sudo
     shell: /bin/bash
   with_items:
