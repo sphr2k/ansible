@@ -2,6 +2,7 @@ stages:
   - test
 
 test:
+  tags: [linux]
   stage: test
   image: python:latest
   before_script:
