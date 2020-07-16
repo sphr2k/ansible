@@ -4,6 +4,8 @@
     additional_playbooks:
       runner0.pep-project.org:
         - name: gitlab-runner
+      docker-registry:
+        - name: docker-registry
   roles:
     - role: buster-upgrade
       when: (ansible_distribution == "Debian" and ansible_distribution_major_version == "9")
