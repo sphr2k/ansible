@@ -1,2 +1,2 @@
 playbooks:
-  gitlab-runner: https://gitlab-ci-token:$(cat /etc/ansible/facts.d/gitlab_token.fact)@pep-security.lu/gitlab/cid/infrastructure/ansible-gitlab-runner.git
+  gitlab-runner: https://pep-security.lu/gitlab/cid/infrastructure/ansible-gitlab-runner.git

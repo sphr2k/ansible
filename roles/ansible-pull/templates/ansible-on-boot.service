@@ -6,7 +6,7 @@ Wants=network-online.target
 [Service]
 Type=oneshot
 ExecStartPre=/bin/sh -c 'until ping -c 1 -w 1 pep-security.lu; do sleep 1; done'
-ExecStart=/usr/bin/ansible-pull -U https://gitlab-ci-token:$(cat /etc/ansible/facts.d/gitlab_token.fact)@pep-security.lu/gitlab/cid/infrastructure/ansible-basic.git -d /var/run/ansible/basic
+ExecStart=/usr/bin/ansible-pull -U https://pep-security.lu/gitlab/cid/infrastructure/ansible-basic.git -d /var/run/ansible/basic
 
 [Install]
 WantedBy=multi-user.target
