@@ -1,3 +1,4 @@
 playbooks:
   gitlab-runner: https://gitlab-ci-token:$(cat /etc/ansible/facts.d/gitlab_token.fact)@pep-security.lu/gitlab/cid/infrastructure/ansible-gitlab-runner.git
   docker-registry: https://gitlab-ci-token:$(cat /etc/ansible/facts.d/gitlab_token.fact)@pep-security.lu/gitlab/cid/infrastructure/ansible-docker-registry.git
+  nginx-file-server: https://gitlab-ci-token:$(cat /etc/ansible/facts.d/gitlab_token.fact)@pep-security.lu/gitlab/cid/infrastructure/ansible-nginx-file-server.git

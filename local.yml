@@ -6,6 +6,8 @@
         - name: gitlab-runner
       docker-registry:
         - name: docker-registry
+      depot-ci.pep.security:
+        - name: nginx-file-server
   roles:
     - role: buster-upgrade
       when: (ansible_distribution == "Debian" and ansible_distribution_major_version == "9")
