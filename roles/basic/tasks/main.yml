@@ -8,13 +8,13 @@
   apt:
     name: qemu-guest-agent
     state: latest
-  when: ansible_system_vendor == "QEMU"
+  when: ansible_system_vendor == "QEMU" and ansible_local.qemu_guest_agent != "false"
 
 - name: Start qemu-guest-agent
   service:
     name: qemu-guest-agent
     state: started
-  when: ansible_system_vendor == "QEMU"
+  when: ansible_system_vendor == "QEMU" and ansible_local.qemu_guest_agent != "false"
 
 - name: Enable UTF-8 in the locale file
   lineinfile: line="en_US.UTF-8 UTF-8" dest=/etc/locale.gen
