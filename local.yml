@@ -4,6 +4,8 @@
     additional_playbooks:
       runner0.pep-project.org:
         - name: gitlab-runner
+      runner1.pep-project.org:
+        - name: gitlab-runner
       docker-registry:
         - name: docker-registry
       depot-ci.pep.security:
