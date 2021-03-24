@@ -15,7 +15,7 @@
   roles:
 #     - role: buster-upgrade
 #       when: (ansible_distribution == "Debian" and ansible_distribution_major_version == "9")
-#     - basic
+     - basic
 #     - ansible-pull
-     - users
+#     - users
 #     - unattended-upgrades
