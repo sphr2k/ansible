@@ -1,21 +1,5 @@
 ---
 - hosts: localhost
-#   vars:
-#     additional_playbooks:
-#       runner0.pep-project.org:
-#         - name: gitlab-runner
-#       runner1.pep-project.org:
-#         - name: gitlab-runner
-#       docker-registry:
-#         - name: docker-registry
-#       depot-ci.pep.security:
-#         - name: nginx-file-server
-#       dockerreg.pep.security:
-#         - name: docker-registry
   roles:
-#     - role: buster-upgrade
-#       when: (ansible_distribution == "Debian" and ansible_distribution_major_version == "9")
-     - basic
-#     - ansible-pull
-#     - users
-#     - unattended-upgrades
+     - users
+     - unattended-upgrades

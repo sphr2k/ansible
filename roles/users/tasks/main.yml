@@ -5,7 +5,7 @@
     groups: adm,sudo
     shell: /bin/bash
   with_items:
-    - dvn
+    - werner
 
 - name: Configure SSH keys
   authorized_key:
@@ -13,8 +13,8 @@
     state: present
     key: "{{ item.key }}"
   with_items:
-    - name: dvn
-      key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAYBrkfJCH8sHuEVGRkOod9fdy4hJzxoq1/q6CnSQSPh
+    - name: werner
+      key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ/S7dOGoEj/S9HGgdtTiQLfifE+RgVMxMkw0roHW+90 jan
 
 - name: Ensure passwordless sudo
   lineinfile:
